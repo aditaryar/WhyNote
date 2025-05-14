@@ -23,20 +23,27 @@ migrate_working_dir/
 # is commented out by default.
 #.vscode/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 .vscode/templates
 >>>>>>> 031a257732caa78f8754b724068d57bb19be297a
+=======
+.vscode/templates
+>>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
 
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
 <<<<<<< HEAD
+<<<<<<< HEAD
 .flutter-plugins
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
 =======
+=======
+>>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
 .packages
 .pub/
 .pub-cache/
@@ -44,7 +51,10 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .melos_tool/
 build/
+<<<<<<< HEAD
 >>>>>>> 031a257732caa78f8754b724068d57bb19be297a
+=======
+>>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
 /build/
 
 # Symbolication related
@@ -52,6 +62,7 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 # Android Studio will place build artifacts here
@@ -61,6 +72,8 @@ app.*.map.json
 
 .vscode/templates
 =======
+=======
+>>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
 *.lock
 *.tmp
 
@@ -107,5 +120,9 @@ coverage/
 firebase-debug.log
 
 # Others
+<<<<<<< HEAD
 pubspec.lock
 >>>>>>> 031a257732caa78f8754b724068d57bb19be297a
+=======
+pubspec.lock
+>>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
