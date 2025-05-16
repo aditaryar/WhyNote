@@ -34,15 +34,49 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
       lastUpdated: DateTime.now(),
     );
     await NoteService.addNote(note);
-    Navigator.pop(context); // kembali ke home
+    Navigator.pop(context);
+  }
+
+  InputDecoration customInputDecoration(String hint) {
+    return InputDecoration(
+      hintText: hint,
+      hintStyle: const TextStyle(
+        color: Colors.white54,
+        fontFamily: 'Montserrat',
+      ),
+      filled: true,
+      fillColor: const Color(0xFF03100E), // warna fill box
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(
+          color: Color(0xFF58DAC7), // warna border box
+          width: 1.5,
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: Color(0xFF58DAC7), width: 1.5),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: Color(0xFF58DAC7), width: 2),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xFF03100E),
       appBar: AppBar(
-        title: const Text('Catatan Panjang'),
+        title: const Text(
+          'Catatan Panjang',
+          style: TextStyle(
+            fontFamily: 'Montserrat',
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
       ),
@@ -52,32 +86,51 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
           children: [
             TextField(
               controller: _titleController,
-              style: const TextStyle(fontSize: 20, color: Colors.white),
-              decoration: const InputDecoration(
-                hintText: 'Judul',
-                hintStyle: TextStyle(color: Colors.white54),
-                border: InputBorder.none,
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w600,
               ),
+              decoration: customInputDecoration('Judul'),
             ),
             const SizedBox(height: 12),
             Expanded(
               child: TextField(
                 controller: _descController,
-                style: const TextStyle(fontSize: 16, color: Colors.white),
-                maxLines: null,
-                decoration: const InputDecoration(
-                  hintText: 'Deskripsi panjang...',
-                  hintStyle: TextStyle(color: Colors.white54),
-                  border: InputBorder.none,
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w300,
                 ),
+                maxLines: null,
+                decoration: customInputDecoration('Deskripsi'),
               ),
             ),
             const SizedBox(height: 12),
             Align(
               alignment: Alignment.centerRight,
-              child: ElevatedButton(
-                onPressed: _saveNote,
-                child: const Text('SIMPAN'),
+              child: GestureDetector(
+                onTap: _saveNote,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 20,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF58DAC7),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: const Text(
+                    'SIMPAN',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
