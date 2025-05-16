@@ -37,15 +37,14 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
     Navigator.pop(context); // kembali ke home
   }
 
+  void _cancelNote() {
+    Navigator.pop(context); // kembali ke home tanpa menyimpan
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: const Text('Catatan Panjang'),
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
-      ),
+      backgroundColor: Color(0xFF03100E),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -73,12 +72,55 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
               ),
             ),
             const SizedBox(height: 12),
-            Align(
-              alignment: Alignment.centerRight,
-              child: ElevatedButton(
-                onPressed: _saveNote,
-                child: const Text('SIMPAN'),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  onTap: _cancelNote,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 20,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[700],
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: const Text(
+                      'CANCEL',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: Colors.white70,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 2,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                GestureDetector(
+                  onTap: _saveNote,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 20,
+                    ),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF58DAC7),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: const Text(
+                      'SIMPAN',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        color: Color(0xFF03100E),
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 2,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
