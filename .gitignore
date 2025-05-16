@@ -22,12 +22,33 @@ migrate_working_dir/
 # VS Code which you may wish to be included in version control, so this line
 # is commented out by default.
 #.vscode/
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 .vscode/templates
+>>>>>>> 031a257732caa78f8754b724068d57bb19be297a
+=======
+.vscode/templates
+>>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
+=======
+.vscode/templates
+>>>>>>> baa34b2 (version 0.1)
 
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+=======
+=======
+>>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
 .packages
 .pub/
 .pub-cache/
@@ -35,6 +56,19 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .melos_tool/
 build/
+<<<<<<< HEAD
+>>>>>>> 031a257732caa78f8754b724068d57bb19be297a
+=======
+>>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
+=======
+.packages
+.pub/
+.pub-cache/
+.flutter-plugins
+.flutter-plugins-dependencies
+.melos_tool/
+build/
+>>>>>>> baa34b2 (version 0.1)
 /build/
 
 # Symbolication related
@@ -42,6 +76,27 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+*.lock
+*.tmp
+>>>>>>> baa34b2 (version 0.1)
+
+# Android
+/android/app/debug
+/android/app/profile
+/android/app/release
+android/.gradle/
+android/app/build/
+android/.idea/
+
+<<<<<<< HEAD
+.vscode/templates
+=======
+=======
+>>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
 *.lock
 *.tmp
 
@@ -53,6 +108,8 @@ android/.gradle/
 android/app/build/
 android/.idea/
 
+=======
+>>>>>>> baa34b2 (version 0.1)
 # iOS
 ios/Flutter/Flutter.framework
 ios/Flutter/Flutter.podspec
@@ -88,4 +145,13 @@ coverage/
 firebase-debug.log
 
 # Others
+<<<<<<< HEAD
+<<<<<<< HEAD
 pubspec.lock
+>>>>>>> 031a257732caa78f8754b724068d57bb19be297a
+=======
+pubspec.lock
+>>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
+=======
+pubspec.lock
+>>>>>>> baa34b2 (version 0.1)

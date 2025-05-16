@@ -1,6 +1,8 @@
 import 'dart:ui'; // untuk BackdropFilter
+import 'dart:ui'; // untuk BackdropFilter
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'detail_screen.dart';
 import 'detail_screen.dart';
 import '../models/note_model.dart';
 import '../services/note_service.dart';
@@ -14,10 +16,31 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+class AssetIcon extends StatelessWidget {
+  final String path;
+  final double size;
+  final Color? color;
+
+  const AssetIcon({super.key, required this.path, this.size = 24, this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      path,
+      width: size,
+      height: size,
+      color:
+          color, // hanya bisa kalau file support coloring (misal: SVG atau PNG monokrom)
+    );
+  }
+}
+
 class _HomeScreenState extends State<HomeScreen> {
   final _titleController = TextEditingController();
   final _descController = TextEditingController();
   bool _isExpanded = false;
+  bool _isSelectionMode = false;
+  Set<int> _selectedKeys = {};
   bool _isSelectionMode = false;
   Set<int> _selectedKeys = {};
 
@@ -47,6 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {
           _isExpanded = false;
         });
+        _descController.addListener(_checkParagraphs);
         _descController.addListener(_checkParagraphs);
       });
     }
@@ -265,8 +289,9 @@ class _HomeScreenState extends State<HomeScreen> {
               : null,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(25.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
@@ -421,6 +446,32 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      floatingActionButton:
+          _isSelectionMode
+              ? Padding(
+                padding: const EdgeInsets.only(bottom: 40),
+                child: Center(
+                  heightFactor: 1,
+                  child: FloatingActionButton(
+                    backgroundColor: Color(0xFF981E1E),
+                    onPressed: () async {
+                      final shouldDelete = await showCustomDeleteDialog(
+                        context,
+                      );
+                      if (shouldDelete == true) {
+                        _deleteSelected();
+                      }
+                    },
+                    shape: const CircleBorder(),
+                    child: const AssetIcon(
+                      path: 'assets/icons/trash.png',
+                      size: 28,
+                    ),
+                  ),
+                ),
+              )
+              : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

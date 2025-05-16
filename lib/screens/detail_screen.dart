@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_debouncer/flutter_debouncer.dart';
@@ -180,6 +182,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
     return Scaffold(
       backgroundColor: const Color(0xFF03100E),
+      backgroundColor: const Color(0xFF03100E),
       appBar: AppBar(
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
@@ -232,9 +235,19 @@ class _DetailScreenState extends State<DetailScreen> {
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w300,
                 ),
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w300,
+                ),
                 maxLines: null,
                 decoration: const InputDecoration(
                   hintText: 'Tulis catatanmu...',
+                  hintStyle: TextStyle(
+                    color: Colors.white54,
+                    fontFamily: 'Montserrat',
+                  ),
                   hintStyle: TextStyle(
                     color: Colors.white54,
                     fontFamily: 'Montserrat',
@@ -248,6 +261,11 @@ class _DetailScreenState extends State<DetailScreen> {
               alignment: Alignment.center,
               child: Text(
                 'Terakhir diubah: $formattedTime',
+                style: const TextStyle(
+                  color: Colors.white38,
+                  fontSize: 12,
+                  fontFamily: 'Montserrat',
+                ),
                 style: const TextStyle(
                   color: Colors.white38,
                   fontSize: 12,
