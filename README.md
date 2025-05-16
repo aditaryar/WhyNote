@@ -2,10 +2,10 @@
 
 WhyNote adalah aplikasi catatan sederhana berbasis Flutter yang dirancang dengan UI modern, responsif, dan nyaman digunakan untuk menulis catatan pendek hingga panjang. Data disimpan secara lokal menggunakan Hive.
 
-## 📸 Screenshot
+## 📸 Preview
 
 ```md
-<img src="assets/screenshots/whynote-preview.png" width="300" />
+<img src="assets/preview/whynote-preview.png" width="300" />
 ```
 
 ## 🚀 Fitur
