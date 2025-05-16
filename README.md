@@ -4,8 +4,6 @@ WhyNote adalah aplikasi catatan sederhana berbasis Flutter yang dirancang dengan
 
 ## 📸 Screenshot
 
-> Tambahkan screenshot UI aplikasi di folder assets/screenshots/ dan cantumkan di sini:
-
 ```md
 <img src="assets/screenshots/whynote-preview.png" width="300" />
 ```
