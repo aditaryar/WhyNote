@@ -5,7 +5,7 @@ WhyNote adalah aplikasi catatan sederhana berbasis Flutter yang dirancang dengan
 ## 📸 Preview
 
 ```md
-<img src="assets/preview/whynote-preview.png" width="300" />
+<img src="assets/preview/Preview.gif" width="300" />
 ```
 
 ## 🚀 Fitur
