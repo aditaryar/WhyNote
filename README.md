@@ -1,32 +1,81 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-# WhyNote
-=======
-=======
->>>>>>> 031a257732caa78f8754b724068d57bb19be297a
-=======
->>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
-# whynote
+# 📝 WhyNote – Aplikasi Catatan Minimalis & Responsif
 
-A new Flutter project.
+WhyNote adalah aplikasi catatan sederhana berbasis Flutter yang dirancang dengan UI modern, responsif, dan nyaman digunakan untuk menulis catatan pendek hingga panjang. Data disimpan secara lokal menggunakan Hive.
 
-## Getting Started
+## 📸 Screenshot
 
-This project is a starting point for a Flutter application.
+> Tambahkan screenshot UI aplikasi di folder assets/screenshots/ dan cantumkan di sini:
 
-A few resources to get you started if this is your first Flutter project:
+```md
+<img src="assets/screenshots/whynote-preview.png" width="300" />
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Fitur
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> b696d77 (Version 0.1)
-=======
->>>>>>> 031a257732caa78f8754b724068d57bb19be297a
-=======
->>>>>>> baa34b2166953128f444d778d1143cff3e6198bc
+- Tambah, edit, dan hapus catatan
+- Tampilan form expand & collapse
+- Scroll otomatis untuk catatan panjang
+- Dialog konfirmasi penghapusan dengan ilustrasi
+- Mode seleksi dan hapus massal
+- UI dark theme elegan
+- Responsif untuk berbagai ukuran layar (flutter_screenutil)
+
+## 🛠️ Teknologi yang Digunakan
+
+- Flutter
+- Hive (local storage)
+- flutter_screenutil (responsive layout)
+- Montserrat & Poppins (custom font)
+- Struktur folder terorganisir (models, screens, services, widgets)
+
+## ⚙️ Cara Menjalankan Proyek
+
+1. Clone repositori:
+
+   ```bash
+   git clone https://github.com/username/whynote.git
+   cd whynote
+   ```
+
+2. Jalankan perintah berikut:
+
+   ```bash
+   flutter pub get
+   ```
+
+3. Generate adapter Hive:
+
+   ```bash
+   flutter pub run build_runner build
+   ```
+
+4. Jalankan aplikasi:
+   ```bash
+   flutter run
+   ```
+
+## 📁 Struktur Folder
+
+```
+lib/
+├── models/
+│   └── note_model.dart
+├── screens/
+│   ├── home_screen.dart
+│   ├── new_note_screen.dart
+│   └── detail_screen.dart
+├── services/
+│   └── note_service.dart
+├── widgets/
+│   └── note_item.dart
+└── main.dart
+```
+
+## 📝 Catatan
+
+- Data hanya disimpan secara lokal (offline).
+- Kamu bisa menambahkan fitur cloud sync (Firebase, Supabase, dsb) di masa mendatang.
+
+## 📄 License
+
+MIT License
