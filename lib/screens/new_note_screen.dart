@@ -37,49 +37,49 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
     Navigator.pop(context);
   }
 
-  InputDecoration customInputDecoration(String hint) {
-    return InputDecoration(
-      hintText: hint,
-      hintStyle: const TextStyle(
-        color: Colors.white54,
-        fontFamily: 'Montserrat',
-      ),
-      filled: true,
-      fillColor: const Color(0xFF03100E), // warna fill box
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(
-          color: Color(0xFF58DAC7), // warna border box
-          width: 1.5,
-        ),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Color(0xFF58DAC7), width: 1.5),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Color(0xFF58DAC7), width: 2),
-      ),
-    );
-  }
+  // InputDecoration customInputDecoration(String hint) {
+  //   return InputDecoration(
+  //     hintText: hint,
+  //     hintStyle: const TextStyle(
+  //       color: Colors.white54,
+  //       fontFamily: 'Montserrat',
+  //     ),
+  //     filled: true,
+  //     fillColor: const Color(0xFF03100E), // warna fill box
+  //     contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+  //     border: OutlineInputBorder(
+  //       borderRadius: BorderRadius.circular(12),
+  //       borderSide: const BorderSide(
+  //         color: Color(0xFF58DAC7), // warna border box
+  //         width: 1.5,
+  //       ),
+  //     ),
+  //     enabledBorder: OutlineInputBorder(
+  //       borderRadius: BorderRadius.circular(12),
+  //       borderSide: const BorderSide(color: Color(0xFF58DAC7), width: 1.5),
+  //     ),
+  //     focusedBorder: OutlineInputBorder(
+  //       borderRadius: BorderRadius.circular(12),
+  //       borderSide: const BorderSide(color: Color(0xFF58DAC7), width: 2),
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF03100E),
-      appBar: AppBar(
-        title: const Text(
-          'Catatan Panjang',
-          style: TextStyle(
-            fontFamily: 'Montserrat',
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
-      ),
+      // appBar: AppBar(
+      //   title: const Text(
+      //     'Catatan Panjang',
+      //     style: TextStyle(
+      //       fontFamily: 'Montserrat',
+      //       fontWeight: FontWeight.w600,
+      //     ),
+      //   ),
+      //   backgroundColor: Colors.black,
+      //   // foregroundColor: Colors.white,
+      // ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -92,46 +92,70 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.w600,
               ),
-              decoration: customInputDecoration('Judul'),
+              // decoration: customInputDecoration('Judul'),
             ),
             const SizedBox(height: 12),
             Expanded(
               child: TextField(
                 controller: _descController,
                 style: const TextStyle(
-                  fontSize: 16,
+                  fontSize: 15,
                   color: Colors.white,
                   fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w300,
+                  fontWeight: FontWeight.w200,
                 ),
                 maxLines: null,
-                decoration: customInputDecoration('Deskripsi'),
+                // decoration: customInputDecoration('Deskripsi'),
               ),
             ),
             const SizedBox(height: 12),
-            Align(
-              alignment: Alignment.centerRight,
-              child: GestureDetector(
-                onTap: _saveNote,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 20,
-                  ),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF58DAC7),
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: const Text(
-                    'SIMPAN',
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 20,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: const Text(
+                      'CANCEL',
+                      style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        color: Color(0xFF565656),
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
-              ),
+                const SizedBox(width: 12),
+                GestureDetector(
+                  onTap: _saveNote,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 20,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Color(0xFF58DAC7),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: const Text(
+                      'SIMPAN',
+                      style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        color: Color(0xFF03100E),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

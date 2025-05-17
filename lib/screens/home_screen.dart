@@ -243,26 +243,26 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF03100E),
-      appBar:
-          _isSelectionMode
-              ? AppBar(
-                backgroundColor: Colors.grey[900],
-                title: Text('${_selectedKeys.length} Dipilih'),
-                actions: [
-                  IconButton(
-                    icon: const Icon(Icons.delete),
-                    onPressed: () async {
-                      final shouldDelete = await showCustomDeleteDialog(
-                        context,
-                      );
-                      if (shouldDelete == true) {
-                        _deleteSelected();
-                      }
-                    },
-                  ),
-                ],
-              )
-              : null,
+      // appBar:
+      //     _isSelectionMode
+      //         ? AppBar(
+      //           backgroundColor: Colors.grey[900],
+      //           title: Text('${_selectedKeys.length} Dipilih'),
+      //           actions: [
+      //             IconButton(
+      //               icon: const Icon(Icons.delete),
+      //               onPressed: () async {
+      //                 final shouldDelete = await showCustomDeleteDialog(
+      //                   context,
+      //                 );
+      //                 if (shouldDelete == true) {
+      //                   _deleteSelected();
+      //                 }
+      //               },
+      //             ),
+      //           ],
+      //         )
+      //         : null,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -273,19 +273,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: RichText(
                   text: TextSpan(
                     style: const TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
                       letterSpacing: 2,
+                      fontFamily: 'Montserrat',
+                      fontSize: 30,
                     ),
                     children: const [
                       TextSpan(
                         text: 'WHY',
-                        style: TextStyle(color: Color(0xFF58DAC7)),
+                        style: TextStyle(
+                          color: Color(0xFF58DAC7),
+                          fontWeight: FontWeight.w200,
+                        ),
                       ),
                       TextSpan(
                         text: 'NOTE',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2,
+                        ),
                       ),
                     ],
                   ),
@@ -293,95 +299,112 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 20),
               Center(
-                child: AnimatedCrossFade(
+                child: AnimatedSize(
                   duration: const Duration(milliseconds: 300),
-                  crossFadeState:
-                      _isExpanded
-                          ? CrossFadeState.showSecond
-                          : CrossFadeState.showFirst,
-                  firstChild: GestureDetector(
-                    onTap: _toggleForm,
-                    child: Container(
+                  curve: Curves.easeInOut,
+                  child: AnimatedCrossFade(
+                    duration: const Duration(milliseconds: 300),
+                    crossFadeState:
+                        _isExpanded
+                            ? CrossFadeState.showSecond
+                            : CrossFadeState.showFirst,
+                    firstChild: GestureDetector(
+                      onTap: _toggleForm,
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        constraints: const BoxConstraints(
+                          minHeight: 60, // Tambahkan tinggi minimum
+                        ),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF03100E),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: const Color(0xFF12594D)),
+                        ),
+                        child: const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Tambahkan Catatan...',
+                            style: TextStyle(
+                              color: Color(0xFF12594D),
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    secondChild: Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         color: const Color(0xFF03100E),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(color: const Color(0xFF58DAC7)),
                       ),
-                      child: const Text(
-                        'Tambahkan Catatan...',
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontFamily: 'Montserrat',
-                        ),
-                      ),
-                    ),
-                  ),
-                  secondChild: Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF03100E),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: const Color(0xFF58DAC7)),
-                    ),
-                    child: Column(
-                      children: [
-                        TextField(
-                          controller: _titleController,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w600,
+                      child: Column(
+                        children: [
+                          TextField(
+                            controller: _titleController,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w200,
+                              fontSize: 20,
+                            ),
+                            decoration: const InputDecoration(
+                              hintText: 'Judul',
+                              hintStyle: TextStyle(color: Color(0xFF58DAC7)),
+                              border: InputBorder.none,
+                            ),
                           ),
-                          decoration: const InputDecoration(
-                            hintText: 'Judul',
-                            hintStyle: TextStyle(color: Color(0xFF58DAC7)),
-                            border: InputBorder.none,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        const Divider(color: Color(0xFF58DAC7), thickness: 1),
-                        const SizedBox(height: 8),
-                        TextField(
-                          controller: _descController,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w300,
-                          ),
-                          maxLines: null,
-                          decoration: const InputDecoration(
-                            hintText: 'Deskripsi',
-                            hintStyle: TextStyle(color: Colors.white54),
-                            border: InputBorder.none,
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: GestureDetector(
-                            onTap: _saveNote,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 10,
-                                horizontal: 20,
+                          const SizedBox(height: 4),
+                          const Divider(color: Color(0xFF58DAC7), thickness: 1),
+                          const SizedBox(height: 8),
+                          TextField(
+                            controller: _descController,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w200,
+                            ),
+                            maxLines: null,
+                            decoration: const InputDecoration(
+                              hintText: 'Deskripsi',
+                              hintStyle: TextStyle(
+                                color: Color(0xFF58DAC7),
+                                fontSize: 15,
+                                letterSpacing: 1.4,
                               ),
-                              decoration: BoxDecoration(
-                                color: const Color(0xFF58DAC7),
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                              child: const Text(
-                                'SIMPAN',
-                                style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
+                              border: InputBorder.none,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: GestureDetector(
+                              onTap: _saveNote,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 10,
+                                  horizontal: 20,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF58DAC7),
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                child: const Text(
+                                  'SIMPAN',
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -395,7 +418,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       return const Center(
                         child: Text(
                           'Belum ada catatan.',
-                          style: TextStyle(color: Colors.white38),
+                          style: TextStyle(
+                            color: Colors.white38,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w200,
+                          ),
                         ),
                       );
                     }
