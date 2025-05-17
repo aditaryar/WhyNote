@@ -232,15 +232,12 @@ class _DetailScreenState extends State<DetailScreen> {
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w300,
                 ),
-<<<<<<< Updated upstream
-=======
                 // style: const TextStyle(
                 //   fontSize: 16,
                 //   color: Colors.white,
                 //   fontFamily: 'Montserrat',
                 //   fontWeight: FontWeight.w300,
                 // ),
->>>>>>> Stashed changes
                 maxLines: null,
                 decoration: const InputDecoration(
                   hintText: 'Tulis catatanmu...',
@@ -248,13 +245,10 @@ class _DetailScreenState extends State<DetailScreen> {
                     color: Colors.white54,
                     fontFamily: 'Montserrat',
                   ),
-<<<<<<< Updated upstream
-=======
                   // hintStyle: TextStyle(
                   //   color: Colors.white54,
                   //   fontFamily: 'Montserrat',
                   // ),
->>>>>>> Stashed changes
                   border: InputBorder.none,
                 ),
               ),
@@ -269,14 +263,11 @@ class _DetailScreenState extends State<DetailScreen> {
                   fontSize: 12,
                   fontFamily: 'Montserrat',
                 ),
-<<<<<<< Updated upstream
-=======
                 // style: const TextStyle(
                 //   color: Colors.white38,
                 //   fontSize: 12,
                 //   fontFamily: 'Montserrat',
                 // ),
->>>>>>> Stashed changes
               ),
             ),
             const SizedBox(height: 20),
